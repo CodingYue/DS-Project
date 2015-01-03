@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B6A21BF1A57FC600038D4BE /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6A21BD1A57FC600038D4BE /* libxml2.2.dylib */; };
+		1B6A21C01A57FC600038D4BE /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6A21BE1A57FC600038D4BE /* libxml2.dylib */; };
 		1BB9FA251A57EF1A00FD7289 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BB9FA241A57EF1A00FD7289 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +25,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B6A21BC1A57F6790038D4BE /* map2.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = map2.osm; path = Resources/map2.osm; sourceTree = "<group>"; };
+		1B6A21BD1A57FC600038D4BE /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		1B6A21BE1A57FC600038D4BE /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		1BB9FA211A57EF1A00FD7289 /* osm-map */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "osm-map"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB9FA241A57EF1A00FD7289 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1BB9FA2B1A57F00D00FD7289 /* xml-parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xml-parser.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6A21BF1A57FC600038D4BE /* libxml2.2.dylib in Frameworks */,
+				1B6A21C01A57FC600038D4BE /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +49,11 @@
 		1BB9FA181A57EF1A00FD7289 = {
 			isa = PBXGroup;
 			children = (
+				1B6A21BD1A57FC600038D4BE /* libxml2.2.dylib */,
+				1B6A21BE1A57FC600038D4BE /* libxml2.dylib */,
 				1BB9FA231A57EF1A00FD7289 /* osm-map */,
 				1BB9FA221A57EF1A00FD7289 /* Products */,
+				1B6A21BC1A57F6790038D4BE /* map2.osm */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				1BB9FA241A57EF1A00FD7289 /* main.cpp */,
+				1BB9FA2B1A57F00D00FD7289 /* xml-parser.h */,
 			);
 			path = "osm-map";
 			sourceTree = "<group>";
@@ -202,6 +214,17 @@
 		1BB9FA291A57EF1A00FD7289 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = "/usr/local/lib ";
+				OTHER_LDFLAGS = (
+					"-lwthttp",
+					"-lwt",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +232,17 @@
 		1BB9FA2A1A57EF1A00FD7289 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = "/usr/local/lib ";
+				OTHER_LDFLAGS = (
+					"-lwthttp",
+					"-lwt",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -232,6 +266,7 @@
 				1BB9FA2A1A57EF1A00FD7289 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
